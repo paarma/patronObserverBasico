@@ -1,0 +1,65 @@
+//Analisis del patrón de diseño Observser API java
+//Primer metodo(Con el cual esta realizado este ejemplo) 
+
+------------------------
+	Observable
++addObserver(Observer obs)
++deleteObserver(Observer obs)
++deleteObservers()
++notifyObservers()
+#setChanged()
+------------------------
+<<interface>>
+	Observer
++update(Observable observable, Object obj)	
+------------------------
+
+//Ventaja:
+Provee un mecanismo encapsulado para manejar el listado de observadores.
+Es decir que ya posee metodos como por ejemplo addObserver(), deleteObserver(), metodos
+que sirven para el manejo de los observadores
+
+//Desventaja:
+Si ya la clase extiende de una clase no podrá extender de la clase Onbservable del api
+esto debido a la herencia UNICA de JAVA
+
+
+*******************************************************
+
+//Segundo metodo: Analisis del patrón de diseño Observser PERSONALIZADO
+(Crear el patron de diseño Observer por medio de interfaces)
+------------------------
+<<interface>>
+	Observable
++addObserver(Observer obs)
++deleteObserver(Observer obs)
++notifyObservers()
+------------------------
+<<interface>>
+	Observer
++update(Object obj)	
+------------------------
+
+Con este segundo metodo se crea de manera manual interfaces con sus metodos para el manejo
+del patrón Observer
+
+//Ventaja:
+Si la clase extiende ya de otra clase, aún asi puede utilizar la implementación de la interfaces 
+creadas manualmente para utilizar el patron de diseño.
+
+//Desventaja:
+Debe escribirse una implementación de los metodos:
+addObserver(Observer obs)
+deleteObserver(Observer obs)
+notifyObservers()
+para cada clase que implemente la interfaz Observable, esto conlleva a que si se tienen muchas clases
+Observable esto implica que implementen los metodos anteriormente mencionados y se puede presentar
+duplicidad de código.
+
+
+*********************************************************
+Ya es cuestion de definición de arquitectura y ver cual de las dos opciones es mas conveniente para 
+el proyecto.
+
+
+
